@@ -3,30 +3,29 @@ require_relative "boot"
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
+# limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module NewsPlatform
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
+    # Initialize configuration defaults for Rails version 7.1.
     config.load_defaults 7.1
 
-    # Please, add to the `ignore` list any other `lib` subdirectories that do
-    # not contain `.rb` files, or that should not be reloaded or eager loaded.
-    # Common ones are `templates`, `generators`, or `middleware`, for example.
+    # Specify subdirectories in `lib` to ignore during autoloading and eager loading.
     config.autoload_lib(ignore: %w(assets tasks))
 
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
+    # Middleware configuration
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore, key: "_news_platform_session"
+    config.middleware.use ActionDispatch::Flash
+    config.middleware.use Rack::MethodOverride
+
+    # General application configuration
+    # Uncomment and customize the following settings as needed:
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    # Only loads a smaller set of middleware suitable for API only apps.
-    # Middleware like session, flash, cookies can be added back manually.
-    # Skip views, helpers and assets when generating a new resource.
-    config.api_only = true
+    # Set to `false` to include full middleware stack and support for views, helpers, and assets.
+    config.api_only = false
   end
 end
