@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     end
   end
 
-  # Set the root path
-  root to: "home#index"
+  # Redirect to the base URL
+  root to: redirect('/')
 
   # Redirect invalid paths to the root path
   get '*path', to: redirect('/')
