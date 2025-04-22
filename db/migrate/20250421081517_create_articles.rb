@@ -12,5 +12,7 @@ class CreateArticles < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
+
+    add_reference :articles, :user, null: false, foreign_key: true
   end
 end

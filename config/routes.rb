@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  # Root route
+  root to: 'home#index'
+
   # Devise routes for user authentication
   devise_for :users
 
-  # Mount RailsAdmin for admin dashboard
+  # Mount RailsAdmin for admin dashboard (accessible only to admin users)
   authenticate :user, ->(user) { user.admin? } do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   end
@@ -21,9 +24,6 @@ Rails.application.routes.draw do
     end
   end
 
-  # Redirect to the base URL
-  root to: redirect('/')
-
   # Redirect invalid paths to the root path
-  get '*path', to: redirect('/')
+  match '*path', to: 'home#index', via: :all
 end

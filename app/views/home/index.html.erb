@@ -1,0 +1,58 @@
+<style>
+  html, body {
+    height: 100%;
+  }
+
+  .content-wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-content {
+    flex: 1;
+  }
+</style>
+
+<div class="content-wrapper">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">News Platform</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/api/v1/articles">Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/api/v1/categories">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/api/v1/authors/1">Authors</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="btn btn-outline-danger" href="/users/sign_out" data-method="delete" rel="nofollow">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-content container mt-5">
+    <div class="text-center">
+      <h1 class="display-4">Welcome to News Platform</h1>
+      <p class="lead">Your one-stop destination for the latest news, articles, and updates.</p>
+      <a href="/api/v1/articles" class="btn btn-primary btn-lg">Explore Articles</a>
+    </div>
+  </div>
+
+  <footer class="bg-light text-center text-lg-start mt-5">
+    <div class="text-center p-3">
+      © 2025 News Platform. All rights reserved.
+    </div>
+  </footer>
+</div>

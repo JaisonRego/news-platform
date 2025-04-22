@@ -23,6 +23,8 @@ class User < ApplicationRecord
   # Defines roles as 'user' and 'admin'
   enum role: { user: 'user', admin: 'admin' }
 
+  has_many :articles
+
   # Check if the user is an admin
   def admin?
     role == 'admin'

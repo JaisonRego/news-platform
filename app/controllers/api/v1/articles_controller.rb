@@ -1,4 +1,7 @@
 class Api::V1::ArticlesController < ApplicationController
+  # Skip authentication only for the index and show actions
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   # GET /api/v1/articles
   # Fetches a list of articles with optional filters for category, article type, author, and tags.
   def index

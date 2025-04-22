@@ -12,4 +12,6 @@ class Category < ApplicationRecord
   # Associations
   # A category can have many articles associated with it.
   has_many :articles
+
+  validates :name, presence: true
 end

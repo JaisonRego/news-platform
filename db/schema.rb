@@ -50,8 +50,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_22_032125) do
     t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["author_id"], name: "index_articles_on_author_id"
     t.index ["category_id"], name: "index_articles_on_category_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "articles_tags", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -98,4 +100,5 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_22_032125) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "authors"
   add_foreign_key "articles", "categories"
+  add_foreign_key "articles", "users"
 end

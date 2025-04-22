@@ -41,6 +41,10 @@ gem "faker"
 # Use SassC for compiling Sass stylesheets
 gem "sassc-rails"
 
+# Testing framework
+# RSpec for testing Rails applications
+gem "rspec-rails", "~> 7.1", group: [:development, :test]
+
 # Development and test group
 group :development, :test do
   # Debugging tools for Rails applications
@@ -49,6 +53,12 @@ group :development, :test do
   # Environment variable management
   # Load environment variables from .env files
   gem "dotenv-rails"
+
+  # FactoryBot for creating test data
+  gem "factory_bot_rails"
+
+  # Shoulda Matchers for testing model associations and validations
+  gem "shoulda-matchers", "~> 5.0"
 end
 
 # Development group
@@ -56,4 +66,13 @@ group :development do
   # Uncomment to speed up commands on slow machines or large apps
   # gem "spring"
 end
-gem "sassc-rails"
+
+# Test group
+group :test do
+  # Rails Controller Testing
+  # Provides `render_template` and other matchers for controller tests
+  gem "rails-controller-testing"
+
+  # Capybara for feature and view testing
+  gem 'capybara'
+end

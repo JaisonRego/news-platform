@@ -44,7 +44,8 @@ puts "Created 15 Tags"
     media_url: Faker::Internet.url,
     category: Category.order("RAND()").first,
     author: Author.order("RAND()").first,
-    publish_date: Faker::Date.backward(days: 30)
+    publish_date: Faker::Date.backward(days: 30),
+    user: User.first # Assuming the first user is the admin
   )
 
   # Attach random image to article_image using Lorem Picsum
