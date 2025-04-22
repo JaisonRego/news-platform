@@ -3,7 +3,6 @@ class CreateArticles < ActiveRecord::Migration[7.1]
     create_table :articles do |t|
       t.string :title
       t.string :sub_title
-      t.string :article_image
       t.integer :article_type
       t.text :description
       t.string :media_url
